@@ -1,24 +1,22 @@
-import logo from './logo.svg';
+
 import './App.css';
+import {useState,useEffect} from "react";
+import PagePrincipale from './Components/PagePrincipale'
+import Navbar from './Components/Navbar'
+import parallax_bg from "./assets/background/parallax-bg.gif"
 
 function App() {
+  const [accounts, setAccounts] = useState([]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   ( <div className="App bg-cover h-screen md:h-full" style={{
+        backgroundImage: `url(${parallax_bg})`,
+       
+      }}>
+        <Navbar acc={accounts} set={setAccounts} />
+        
+        <PagePrincipale  acc={accounts} set={setAccounts} />
+
+    </div>)
   );
 }
 
